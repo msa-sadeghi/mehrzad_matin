@@ -37,7 +37,7 @@ class Player(Sprite):
         self.move(tiles)
         self.animation()
   
-        pygame.draw.rect(screen, (10,230,210), self.rect,4)
+       
 
   
 
@@ -71,7 +71,6 @@ class Player(Sprite):
     def move(self, tiles):
         dx = 0
         dy = 0
-
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
             self.idle = False
@@ -95,19 +94,25 @@ class Player(Sprite):
 
         self.vel_y += 1
         dy += self.vel_y
-        
+        if self.direction == 1:
+            rect = pygame.Rect(self.rect.x + 50, self.rect.y + 10, self.image.get_width()-70,self.image.get_height()-20)
+        elif self.direction == -1:
+            rect = pygame.Rect(self.rect.x + 20, self.rect.y + 10, self.image.get_width()-70,self.image.get_height()-20)
+        # pygame.draw.rect(screen,(0,0,0), rect,4)
         for tile in tiles:
 
             # if tile[1].colliderect(self.rect.x + dx, self.rect.y , self.image.get_width(), self.image.get_height()):
             #     dx = 0
 
-            if tile[1].colliderect(self.rect.x, self.rect.y + dy, self.image.get_width(), self.image.get_height()):
+            if tile[1].colliderect(rect.x, rect.y + dy, self.image.get_width()-70,self.image.get_height()-20):
             
-                print("self.inair", self.in_air)
-                self.vel_y = 0
-                dy = tile[1].top - self.rect.bottom
-                self.in_air = False
-            
+                if self.vel_y < 0 :
+                    self.vel_y = 0
+                    dy = tile[1].bottom - rect.top
+                else:
+                    self.vel_y = 0
+                    dy = tile[1].top - rect.bottom
+                    self.in_air = False
         
         
         self.rect.x += dx
