@@ -86,7 +86,7 @@ class Player(Sprite):
             self.idle = True
 
         if keys[pygame.K_SPACE] and not self.jumped and not self.in_air:
-            self.vel_y = -10
+            self.vel_y = -15
             self.jumped = True
             self.in_air = True
         if not keys[pygame.K_SPACE]:
@@ -101,8 +101,8 @@ class Player(Sprite):
         # pygame.draw.rect(screen,(0,0,0), rect,4)
         for tile in tiles:
 
-            # if tile[1].colliderect(self.rect.x + dx, self.rect.y , self.image.get_width(), self.image.get_height()):
-            #     dx = 0
+            if tile[1].colliderect(rect.x + dx, rect.y , self.image.get_width()-70,self.image.get_height()-20):
+                dx = 0
 
             if tile[1].colliderect(rect.x, rect.y + dy, self.image.get_width()-70,self.image.get_height()-20):
             
