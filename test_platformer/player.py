@@ -37,14 +37,7 @@ class Player(Sprite):
         self.move(tiles)
         self.animation()
   
-       
-
-  
-
-        
-
-    
-    
+      
     
     def animation(self):
         self.counter += 1
