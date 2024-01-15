@@ -12,7 +12,8 @@ pygame.mixer.music.play(-1)
 player_group = pygame.sprite.Group()#########
 
 enemy_group = pygame.sprite.Group()#########
-game_world = World(world_data,player_group,enemy_group)#########
+lava_group = pygame.sprite.Group()#########
+game_world = World(world_data,player_group,enemy_group, lava_group)#########
 
 running = True
 while running:
@@ -25,5 +26,6 @@ while running:
     player_group.draw(screen)#########
     enemy_group.update()
     enemy_group.draw(screen)
+    lava_group.draw(screen)
     pygame.display.update()
     clock.tick(FPS)
