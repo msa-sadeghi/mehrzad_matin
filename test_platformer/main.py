@@ -5,8 +5,14 @@ from levels.level1 import world_data
 pygame.init()
 clock = pygame.time.Clock()
 
+pygame.mixer.music.load("assets/img/music.wav")
+
+pygame.mixer.music.play(-1)
+
 player_group = pygame.sprite.Group()#########
-game_world = World(world_data,player_group)#########
+
+enemy_group = pygame.sprite.Group()#########
+game_world = World(world_data,player_group,enemy_group)#########
 
 running = True
 while running:
@@ -17,5 +23,7 @@ while running:
     game_world.draw(screen)
     player_group.update(screen, game_world.tile_list)#########
     player_group.draw(screen)#########
+    enemy_group.update()
+    enemy_group.draw(screen)
     pygame.display.update()
     clock.tick(FPS)

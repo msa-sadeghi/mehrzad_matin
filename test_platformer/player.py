@@ -26,19 +26,19 @@ class Player(Sprite):
         self.counter = 0
         self.image = self.idle_right_images[self.frame_index]
         self.rect = self.image.get_rect(topleft = (x,y))
+        
+        
         self.vel_y = 0
         self.speed = 5
         self.jumped = False
         self.in_air = False
         self.direction = 1
         self.idle = True
+        self.jump_sound = pygame.mixer.Sound("assets/img/jump.wav")
 
     def update(self,screen, tiles):
         self.move(tiles)
         self.animation()
-  
-      
-    
     def animation(self):
         self.counter += 1
         if self.counter > 2:
@@ -57,11 +57,8 @@ class Player(Sprite):
             if self.direction == -1:
                 self.image = self.idle_left_images[self.frame_index]
 
-
-
-
-    
     def move(self, tiles):
+        
         dx = 0
         dy = 0
         keys = pygame.key.get_pressed()
@@ -79,6 +76,7 @@ class Player(Sprite):
             self.idle = True
 
         if keys[pygame.K_SPACE] and not self.jumped and not self.in_air:
+            self.jump_sound.play()
             self.vel_y = -15
             self.jumped = True
             self.in_air = True
@@ -86,6 +84,11 @@ class Player(Sprite):
             self.jumped = False
 
         self.vel_y += 1
+        if self.vel_y > 10:
+            self.vel_y = 10
+        if self.vel_y < -15:
+            self.vel_y = -15
+
         dy += self.vel_y
         if self.direction == 1:
             rect = pygame.Rect(self.rect.x + 50, self.rect.y + 10, self.image.get_width()-70,self.image.get_height()-20)
@@ -106,7 +109,6 @@ class Player(Sprite):
                     self.vel_y = 0
                     dy = tile[1].top - rect.bottom
                     self.in_air = False
-        
         
         self.rect.x += dx
         self.rect.y += dy

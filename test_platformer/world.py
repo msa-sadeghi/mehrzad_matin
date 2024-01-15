@@ -2,11 +2,13 @@ import pygame
 from constants import *
 #########
 from player import Player
+from enemy import Enemy
 class World:
     
-    def __init__(self, tile_map, player_group):#########
+    def __init__(self, tile_map, player_group, enemy_group):#########
         self.tile_list = []
         self.player_group = player_group#########
+        self.enemy_group = enemy_group#########
         self.image = pygame.image.load("assets/background.png")
         self.image = pygame.transform.scale(self.image, (SCREEN_WIDTH, SCREEN_HEIGHT))
         self.rect = self.image.get_rect(topleft = (0,0))
@@ -32,6 +34,9 @@ class World:
                 if tile_map[row][col] == 4:
                     player = Player(col * TILE_SIZE, row*TILE_SIZE)
                     self.player_group.add(player)
+                if tile_map[row][col] == 6:
+                    enemy = Enemy(col * TILE_SIZE, row*TILE_SIZE)
+                    self.enemy_group.add(enemy)
                     
 
     def draw(self,screen):
