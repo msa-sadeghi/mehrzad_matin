@@ -22,7 +22,7 @@ while running:
             if event.key == pygame.K_ESCAPE:
                 running = False
     game_world.draw(screen)
-    player_group.update(screen, game_world.tile_list)#########
+    player_group.update(screen, game_world.tile_list, enemy_group)#########
     player_group.draw(screen)#########
     enemy_group.update()
     enemy_group.draw(screen)

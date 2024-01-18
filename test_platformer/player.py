@@ -36,7 +36,7 @@ class Player(Sprite):
         self.idle = True
         self.jump_sound = pygame.mixer.Sound("assets/img/jump.wav")
 
-    def update(self,screen, tiles):
+    def update(self,screen, tiles, enemy_group):
         self.move(tiles)
         self.animation()
     def animation(self):
