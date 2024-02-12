@@ -1,16 +1,17 @@
 import pygame
 from constants import *
-#########
 from player import Player
 from enemy import Enemy
 from lava import Lava
+from door import Door
 class World:
     
-    def __init__(self, tile_map, player_group, enemy_group,lava_group):#########
+    def __init__(self, tile_map, player_group, enemy_group,lava_group,door_group):
         self.tile_list = []
-        self.player_group = player_group#########
-        self.enemy_group = enemy_group#########
-        self.lava_group = lava_group#########
+        self.player_group = player_group
+        self.enemy_group = enemy_group
+        self.lava_group = lava_group
+        self.door_group = door_group
         self.image = pygame.image.load("assets/background.png")
         self.image = pygame.transform.scale(self.image, (SCREEN_WIDTH, SCREEN_HEIGHT))
         self.rect = self.image.get_rect(topleft = (0,0))
@@ -42,6 +43,9 @@ class World:
                 if tile_map[row][col] == 6:
                     enemy = Enemy(col * TILE_SIZE, row*TILE_SIZE)
                     self.enemy_group.add(enemy)
+                if tile_map[row][col] == 7:
+                    door = Door(col * TILE_SIZE, row*TILE_SIZE+2)
+                    self.door_group.add(door)
                     
 
     def draw(self,screen):

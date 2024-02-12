@@ -23,24 +23,28 @@ class Player(Sprite):
             self.idle_right_images.append(image)
             image = pygame.transform.flip(image, True, False)
             self.idle_left_images.append(image)
+        self.jump_sound = pygame.mixer.Sound("assets/img/jump.wav")
+        self.dead_image = pygame.image.load("assets/img/ghost.png")
+        self.reset(x,y)
 
-        self.frame_index = 0
-        self.counter = 0
-        self.image = self.idle_right_images[self.frame_index]
-        self.rect = self.image.get_rect(topleft=(x, y))
-
+    
+    def reset(self, x,y):
         self.vel_y = 0
         self.speed = 5
         self.jumped = False
         self.in_air = False
         self.direction = 1
         self.idle = True
-        self.jump_sound = pygame.mixer.Sound("assets/img/jump.wav")
         self.alive = True
-        self.dead_image = pygame.image.load("assets/img/ghost.png")
-
-    def update(self, screen, tiles, enemy_group):
-        self.move(tiles, enemy_group)
+        self.frame_index = 0
+        self.counter = 0
+        self.image = self.idle_right_images[self.frame_index]
+        self.rect = self.image.get_rect(topleft=(x, y))
+        self.next_level = False
+        
+    
+    def update(self, screen, tiles, enemy_group, door_group):
+        self.move(tiles, enemy_group,door_group)
 
     def animation(self):
         self.counter += 1
@@ -60,7 +64,7 @@ class Player(Sprite):
             if self.direction == -1:
                 self.image = self.idle_left_images[self.frame_index]
 
-    def move(self, tiles, enemy_group):
+    def move(self, tiles, enemy_group, door_group):
 
         dx = 0
         dy = 0
@@ -117,6 +121,9 @@ class Player(Sprite):
 
             if pygame.sprite.spritecollide(self, enemy_group, False):
                 self.alive = False
+
+            if pygame.sprite.spritecollide(self, door_group, False):
+                self.next_level = True
 
             self.rect.x += dx
             self.rect.y += dy

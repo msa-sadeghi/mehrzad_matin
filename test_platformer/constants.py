@@ -11,3 +11,4 @@ COLS = SCREEN_WIDTH // TILE_SIZE
 DIRT_IMAGE = pygame.image.load("assets/dirt.png")
 GRASS_IMAGE = pygame.image.load("assets/grass.png")
 WATER_IMAGE = pygame.image.load("assets/water.png")
+RESTART_IMAGE = pygame.image.load("assets/img/restart_btn.png")
