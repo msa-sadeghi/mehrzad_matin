@@ -38,7 +38,7 @@ while running:
     game_world.draw()
     castle.shoot(bullet_group)
     castle.draw()
-    enemy_group.update(screen, bullet_group)
+    enemy_group.update(screen,castle, bullet_group)
     enemy_group.draw(screen)
     bullet_group.update()
     bullet_group.draw(screen)
