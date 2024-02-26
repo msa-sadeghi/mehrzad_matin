@@ -28,7 +28,7 @@ enemy_group.add(enemy_1)
 
 bullet_group = pygame.sprite.Group()
 game_world = World(background_image)
-castle = Castle(castle_100, SCREEN_WIDTH - 250, SCREEN_HEIGHT - 300, 0.2)
+castle = Castle(castle_100,castle_50, castle_25, SCREEN_WIDTH - 250, SCREEN_HEIGHT - 300, 0.2)
 clock = pygame.time.Clock()
 running = True
 while running:
