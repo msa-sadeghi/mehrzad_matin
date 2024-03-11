@@ -4,6 +4,7 @@ from world import World
 from castle import Castle
 from enemy import Enemy
 from crosshair import CrossHair
+from button import Button
 pygame.init()
 enemy_animations = []
 enemy_types = ['knight', 'goblin', 'purple_goblin', 'red_goblin']
@@ -41,14 +42,42 @@ clock = pygame.time.Clock()
 
 crosshair = CrossHair(0.06)
 
+repair_button = Button(SCREEN_WIDTH - 100, 30, repair_image, 0.5 )
 
-def draw_text(text):
-    f = pygame.font.SysFont("arial", 48)
-    t = f.render(text, True, (255,10,10))
-    r = t.get_rect(center = (SCREEN_WIDTH/2, SCREEN_HEIGHT/2))
+
+def draw_text(text,x,y, size, color, is_center):
+    f = pygame.font.SysFont("arial", size)
+    t = f.render(text, True, color)
+    if is_center:
+        r = t.get_rect(center = (x,y))
+    else:
+        r = t.get_rect(topleft = (x,y))
+        
     
     screen.blit(t,r)
 
+def game_over():
+    global running, level_difficulty, target_difficulty
+    game_world.draw()
+    draw_text("Game Over Press Enter To Continue...", SCREEN_WIDTH/2 , SCREEN_HEIGHT/2,
+              36, (194, 17, 89), True)
+    pygame.display.update()
+    paused = True
+    while paused:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                paused = False
+                running = False
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    paused = False
+                    castle.score = 0
+                    castle.health = 1000
+                    castle.max_health = 1000
+                    castle.money = 0
+                    level_difficulty = 0
+                    target_difficulty = 1000
+                    enemy_group.empty()
 
 running = True
 while running:
@@ -56,6 +85,11 @@ while running:
         if event.type == pygame.QUIT:
             running = False
     game_world.draw()
+    repair_button.draw(screen)
+    draw_text(f"Score: {castle.score}", 70, 10, 22, (255,10,190), False)
+    draw_text(f"Money: {castle.money}", 70, 40, 22, (255,190,10), False)
+    draw_text(f"Lives: {castle.health}", 290, 10, 22, (205,10,10), False)
+    draw_text(f"Max Health: {castle.max_health}", 290, 40, 22, (215,111,210), False)
     crosshair.draw(screen)
     castle.shoot(bullet_group)
     castle.draw()
@@ -79,7 +113,7 @@ while running:
             next_level = True
             level_reset_time = pygame.time.get_ticks()
     if next_level:
-        draw_text(f"LEVEL {level} COMPLETED")
+        draw_text(f"LEVEL {level} COMPLETED", SCREEN_WIDTH/2, SCREEN_HEIGHT/2, 48, (255,10,10), True)
         if pygame.time.get_ticks() - level_reset_time > 1500:
             next_level = False
             level += 1
@@ -87,7 +121,8 @@ while running:
             level_difficulty = 0
             enemy_group.empty()       
         
-    
+    if castle.health <= 0:
+        game_over()
     
     bullet_group.update()
     bullet_group.draw(screen)
