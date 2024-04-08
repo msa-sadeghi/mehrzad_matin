@@ -1,0 +1,77 @@
+from pygame.sprite import Sprite
+import pygame
+import os
+class Soldier(Sprite):
+    def __init__(self,char_type, x,y, scale, speed, ammo):
+        super().__init__()
+        
+        self.direction = 1
+        self.char_type = char_type
+        self.speed = speed
+        self.flip = False
+        self.ammo = ammo
+        self.stat_ammo = ammo
+        self.alive = True
+        self.health = 100
+        self.max_health = self.health
+        self.direction = 1
+        self.vel_y = 0
+        self.jump = False
+      
+        self.in_air = True
+       
+        self.animation_list = []
+        self.frame_index = 0
+        self.action = 0
+        self.update_time = pygame.time.get_ticks()
+        animation_types = ("Idle", "Run", "Jump", "Death")
+        for animation in animation_types:
+            temp_list = []
+            n = len(os.listdir(f"assets/images/{self.char_type}/{animation}"))
+            for i in range(n):
+                img = pygame.image.load(f"assets/images/{self.char_type}/{animation}/{i}.png")
+                img_w = img.get_width()
+                img_h = img.get_height()
+                img = pygame.transform.scale(img, (img_w * 3, img_h * 3))
+                temp_list.append(img)
+            self.animation_list.append(temp_list)
+        self.image = self.animation_list[self.action][self.frame_index]
+        self.rect = self.image.get_rect(center=(x,y))
+        self.last_anim_update = pygame.time.get_ticks()
+        
+    def update(self)    :
+        self.update_animation()
+        self.check_alive()
+    def check_alive(self)   :
+        pass
+    def update_animation(self):
+        self.image = self.animation_list[self.action][self.frame_index]
+        if pygame.time.get_ticks() - self.last_anim_update > 100:
+            self.last_anim_update = pygame.time.get_ticks()
+            self.frame_index += 1
+            if self.frame_index >= len(self.animation_list[self.action]):
+                self.frame_index = 0
+            
+        
+        
+    def draw(self,screen):
+        screen.blit(self.image, self.rect)
+        
+    def move(self, moving_left, moving_right):
+        dx = 0
+        dy = 0 
+        if moving_left:
+            dx -= self.speed
+            self.direction = -1
+            self.flip = True
+        if moving_right:
+            dx += self.speed
+            self.direction = 1
+            self.flip = False
+        
+        
+        
+    
+    
+    
+   
