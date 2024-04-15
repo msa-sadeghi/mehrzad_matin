@@ -51,11 +51,15 @@ class Soldier(Sprite):
             self.frame_index += 1
             if self.frame_index >= len(self.animation_list[self.action]):
                 self.frame_index = 0
-            
+    def update_action(self, action):
+        if action != self.action:
+            self.action = action
+            self.frame_index = 0
+            self.update_time = pygame.time.get_ticks()
         
         
     def draw(self,screen):
-        screen.blit(self.image, self.rect)
+        screen.blit(pygame.transform.flip(self.image, self.flip, False), self.rect)
         
     def move(self, moving_left, moving_right):
         dx = 0
@@ -68,6 +72,8 @@ class Soldier(Sprite):
             dx += self.speed
             self.direction = 1
             self.flip = False
+        self.rect.x += dx
+        self.rect.y += dy
         
         
         
