@@ -1,6 +1,7 @@
 from pygame.sprite import Sprite
 import pygame
 import os
+from bullet import Bullet
 class Soldier(Sprite):
     def __init__(self,char_type, x,y, scale, speed, ammo):
         super().__init__()
@@ -56,6 +57,11 @@ class Soldier(Sprite):
             self.action = action
             self.frame_index = 0
             self.update_time = pygame.time.get_ticks()
+    def shoot(self, bullet_group):
+        if self.ammo > 0:
+            bullet = Bullet(self.rect.centerx + self.direction *  0.6 *self.rect.size[0], self.rect.centery, self.direction)
+            bullet_group.add(bullet)
+            self.ammo -= 1
         
         
     def draw(self,screen):
