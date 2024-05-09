@@ -10,10 +10,11 @@ grenade_group = pygame.sprite.Group()
 moving_left = False
 moving_right = False
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-s1 = Soldier('player',200, 200, 3,1,10)
-s2 = Soldier('enemy',400, 200, 3,1,5)
+s1 = Soldier('player',200, 200, 3,1,10,10)
+s2 = Soldier('enemy',400, 200, 3,1,5,0)
 shoot = False
 grenade = False
+grenade_thrown = False
 running = True
 while running:
     for event in pygame.event.get():
@@ -43,14 +44,19 @@ while running:
                 s1.jump = False
             if event.key == pygame.K_g:
                 grenade = False
+                grenade_thrown = False
     if s1.alive:
         if shoot:
             s1.shoot(bullet_group)  
-        elif grenade:
+        elif grenade and not grenade_thrown and s1.grenade > 0:
             grenade = Grenade(s1.rect.centerx + s1.rect.size[0] * s1.direction, s1.rect.top, s1.direction)
             grenade_group.add(grenade)
+            grenade_thrown = True
+            s1.grenade -= 1
         if s1.in_air:
             s1.update_action(2)  
+        elif moving_left and moving_right:
+            s1.update_action(0)
         elif moving_left or moving_right:
             s1.update_action(1)
         else:

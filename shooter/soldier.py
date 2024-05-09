@@ -3,7 +3,7 @@ import pygame
 import os
 from bullet import Bullet
 class Soldier(Sprite):
-    def __init__(self,char_type, x,y, scale, speed, ammo):
+    def __init__(self,char_type, x,y, scale, speed, ammo, grenade):
         super().__init__()
         
         self.direction = 1
@@ -11,6 +11,7 @@ class Soldier(Sprite):
         self.speed = speed
         self.flip = False
         self.ammo = ammo
+        self.grenade = grenade
         self.stat_ammo = ammo
         self.alive = True
         self.health = 100
