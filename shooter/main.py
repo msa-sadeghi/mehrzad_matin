@@ -1,15 +1,19 @@
 import pygame
 from soldier import Soldier
+from grenade import Grenade
 pygame.init()
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 640
+clock = pygame.time.Clock()
 bullet_group = pygame.sprite.Group()
+grenade_group = pygame.sprite.Group()
 moving_left = False
 moving_right = False
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 s1 = Soldier('player',200, 200, 3,1,10)
 s2 = Soldier('enemy',400, 200, 3,1,5)
 shoot = False
+grenade = False
 running = True
 while running:
     for event in pygame.event.get():
@@ -23,6 +27,11 @@ while running:
                 moving_right = True
             if event.key == pygame.K_SPACE:
                 shoot = True
+            if event.key == pygame.K_UP:
+                s1.jump = True
+            if event.key == pygame.K_g:
+                grenade = True
+                
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT:
                 moving_left = False
@@ -30,11 +39,19 @@ while running:
                 moving_right = False
             if event.key == pygame.K_SPACE:
                 shoot = False
+            if event.key == pygame.K_UP:
+                s1.jump = False
+            if event.key == pygame.K_g:
+                grenade = False
     if s1.alive:
         if shoot:
-            s1.shoot(bullet_group)
-        
-        if moving_left or moving_right:
+            s1.shoot(bullet_group)  
+        elif grenade:
+            grenade = Grenade(s1.rect.centerx + s1.rect.size[0] * s1.direction, s1.rect.top, s1.direction)
+            grenade_group.add(grenade)
+        if s1.in_air:
+            s1.update_action(2)  
+        elif moving_left or moving_right:
             s1.update_action(1)
         else:
             s1.update_action(0)
@@ -43,8 +60,10 @@ while running:
     s1.update()  
     s1.move(moving_left, moving_right)    
     s2.draw(screen) 
-    s1.update()     
     bullet_group.update(s1,s2,bullet_group) 
     bullet_group.draw(screen)
+    grenade_group.update()
+    grenade_group.draw(screen)
     pygame.display.update()
+    clock.tick(60)
     
