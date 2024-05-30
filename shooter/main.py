@@ -22,6 +22,8 @@ while running:
             running = False
             
         if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                running = False
             if event.key == pygame.K_LEFT:
                 moving_left = True
             if event.key == pygame.K_RIGHT:
@@ -61,10 +63,15 @@ while running:
             s1.update_action(1)
         else:
             s1.update_action(0)
-    screen.fill((0,0,0))           
+    screen.fill((0,0,0))  
+    
+    print(s2.health)
+    
+             
     s1.draw(screen) 
     s1.update()  
-    s1.move(moving_left, moving_right)    
+    s1.move(moving_left, moving_right)  
+    s2.update()  
     s2.draw(screen) 
     bullet_group.update(s1,s2,bullet_group) 
     bullet_group.draw(screen)

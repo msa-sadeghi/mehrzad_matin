@@ -48,14 +48,21 @@ class Soldier(Sprite):
         if self.shoot_cooldown > 0:
             self.shoot_cooldown -= 1
     def check_alive(self)   :
-        pass
+        if self.health <= 0:
+            self.health = 0
+            self.speed = 0
+            self.alive = False
+            self.update_action(3)
     def update_animation(self):
         self.image = self.animation_list[self.action][self.frame_index]
         if pygame.time.get_ticks() - self.last_anim_update > 100:
             self.last_anim_update = pygame.time.get_ticks()
             self.frame_index += 1
             if self.frame_index >= len(self.animation_list[self.action]):
-                self.frame_index = 0
+                if self.action == 3:
+                    self.frame_index = len(self.animation_list[self.action]) -1
+                else:
+                    self.frame_index = 0
     def update_action(self, action):
         if action != self.action:
             self.action = action
