@@ -7,6 +7,7 @@ SCREEN_HEIGHT = 640
 clock = pygame.time.Clock()
 bullet_group = pygame.sprite.Group()
 grenade_group = pygame.sprite.Group()
+explosion_group = pygame.sprite.Group()
 moving_left = False
 moving_right = False
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -75,8 +76,10 @@ while running:
     s2.draw(screen) 
     bullet_group.update(s1,s2,bullet_group) 
     bullet_group.draw(screen)
-    grenade_group.update()
+    grenade_group.update(explosion_group, s1,s2)
     grenade_group.draw(screen)
+    explosion_group.update()
+    explosion_group.draw(screen)
     pygame.display.update()
     clock.tick(60)
     
