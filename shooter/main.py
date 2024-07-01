@@ -1,7 +1,28 @@
 import pygame
 from soldier import Soldier
 from grenade import Grenade
+from itembox import ItemBox
 pygame.init()
+
+health_box_img = pygame.image.load("assets/images/icons/health_box.png")
+ammo_box_img = pygame.image.load("assets/images/icons/ammo_box.png")
+grenade_box_img = pygame.image.load("assets/images/icons/grenade_box.png")
+
+item_boxes = {
+    'Health': health_box_img,
+    'Ammo':ammo_box_img,
+    'Grenade': grenade_box_img
+}
+item_box_group = pygame.sprite.Group()
+item_box = ItemBox("Health",item_boxes, 100, 260)
+item_box_group.add(item_box)
+item_box = ItemBox("Ammo",item_boxes,400, 260)
+item_box_group.add(item_box)
+item_box = ItemBox("Grenade",item_boxes,500, 260)
+item_box_group.add(item_box)
+
+
+
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 640
 clock = pygame.time.Clock()
@@ -80,6 +101,8 @@ while running:
     grenade_group.draw(screen)
     explosion_group.update()
     explosion_group.draw(screen)
+    item_box_group.update(s1)
+    item_box_group.draw(screen)
     pygame.display.update()
     clock.tick(60)
     
