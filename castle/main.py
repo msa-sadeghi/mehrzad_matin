@@ -5,6 +5,7 @@ from castle import Castle
 from enemy import Enemy
 from crosshair import CrossHair
 from button import Button
+from tower import Tower
 pygame.init()
 enemy_animations = []
 enemy_types = ['knight', 'goblin', 'purple_goblin', 'red_goblin']
@@ -43,7 +44,7 @@ clock = pygame.time.Clock()
 crosshair = CrossHair(0.06)
 
 repair_button = Button(SCREEN_WIDTH - 100, 30, repair_image, 0.5 )
-
+tower_button = Button(SCREEN_WIDTH - 40, 30, tower_100, 0.1)
 
 def draw_text(text,x,y, size, color, is_center):
     f = pygame.font.SysFont("arial", size)
@@ -86,6 +87,7 @@ while running:
             running = False
     game_world.draw()
     repair_button.draw(screen)
+    tower_button.draw(screen)
     draw_text(f"Score: {castle.score}", 70, 10, 22, (255,10,190), False)
     draw_text(f"Money: {castle.money}", 70, 40, 22, (255,190,10), False)
     draw_text(f"Lives: {castle.health}", 290, 10, 22, (205,10,10), False)
