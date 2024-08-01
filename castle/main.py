@@ -86,7 +86,8 @@ while running:
         if event.type == pygame.QUIT:
             running = False
     game_world.draw()
-    repair_button.draw(screen)
+    if repair_button.draw(screen):
+        castle.repair()
     tower_button.draw(screen)
     draw_text(f"Score: {castle.score}", 70, 10, 22, (255,10,190), False)
     draw_text(f"Money: {castle.money}", 70, 40, 22, (255,190,10), False)
