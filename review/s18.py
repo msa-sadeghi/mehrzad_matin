@@ -1,7 +1,32 @@
 from tkinter import *
+from random import randint
+class Snake:
+    def __init__(self):
+        self.body_size = BODY_SIZE
+        self.coordinates = []
+        self.squares = []
+        
+        for i in range(BODY_SIZE):
+            self.coordinates.append([0,0])
+        for x,y in self.coordinates:
+            square = canvas.create_rectangle(x,y, x + SPACE_SIZE, y + SPACE_SIZE, fill=SNAKE_COLOR)
+            self.squares.append(square)
+
+
+
+class Food:
+    def __init__(self) -> None:
+        x = randint(0, (GAME_WIDTH//SPACE_SIZE - 1)) * SPACE_SIZE
+        y = randint(0, (GAME_HEIGHT//SPACE_SIZE - 1)) * SPACE_SIZE
+        self.coordinates = [x,y]
+        canvas.create_oval(x,y, x + SPACE_SIZE, y + SPACE_SIZE, fill=FOOD_COLOR, tag = "food")
 
 GAME_WIDTH = 700
 GAME_HEIGHT = 700
+BODY_SIZE = 2
+SPACE_SIZE = 50
+SNAKE_COLOR = "yellow"
+FOOD_COLOR = "red"
 score = 0
 window = Tk()
 window.title("Snake")
