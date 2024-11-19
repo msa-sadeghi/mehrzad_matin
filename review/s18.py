@@ -1,5 +1,7 @@
 from tkinter import *
 from random import randint
+import sys
+import os
 class Snake:
     def __init__(self):
         self.body_size = BODY_SIZE
@@ -85,7 +87,11 @@ def game_over() :
     canvas.create_text(canvas.winfo_width()/2, canvas.winfo_height()/2, font=("arial", 60), text="GAME OVER!", fill="#DF1A2F", tag="gameover")
  
 def restart() :
-    print("ok")
+    
+    path = sys.executable
+    print(path)
+    print(*sys.argv)
+    os.execl(path,path, ".\s18.py")
      
 direction = "down"
 GAME_WIDTH = 700
