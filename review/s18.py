@@ -95,7 +95,7 @@ def restart() :
      
 direction = "down"
 GAME_WIDTH = 700
-GAME_HEIGHT = 700
+GAME_HEIGHT = 500
 BODY_SIZE = 2
 SPACE_SIZE = 50
 SNAKE_COLOR = "yellow"
