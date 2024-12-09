@@ -20,10 +20,12 @@ score2_text = font.render(f"score: {score2}", True, (0,255,0))
 paddle2_direction = 1
 start_movement  = False
 def reset_ball_position():
+    global ball_speed
     ball.x = WIDTH//2 - 15
     ball.y = HEIGHT//2 - 15
+    ball_speed = 3
 
-
+ball_speed = 3
 running = True
 while running:
     for event in pygame.event.get():
@@ -36,22 +38,19 @@ while running:
                 
     keys = pygame.key.get_pressed()
     
-    if keys[pygame.K_w]:
+    if keys[pygame.K_w] and paddle1.top >0:
         paddle1.y -= 10
         
-    if keys[pygame.K_s]:
+    if keys[pygame.K_s] and paddle1.bottom < HEIGHT:
         paddle1.y += 10
         
-    if ball.y > paddle2.y and paddle2.y > 100:
+    if ball.centery > paddle2.centery + 25 and paddle2.top > 100:
         paddle2_direction = 1
-    elif ball.y < paddle2.y and paddle2.y < HEIGHT - 100:
+    elif ball.centery < paddle2.centery - 25 and paddle2.centery < HEIGHT - 100:
         paddle2_direction = -1
     if paddle2.bottom >= HEIGHT or paddle2.top <= 0:
         paddle2_direction *= -1
     
-    if start_movement:
-        ball.x += 1 * ball_dx
-        ball.y += 1 * ball_dy
     if ball.top <= 0 or ball.bottom >= HEIGHT:
         ball_dy *= -1
     if ball.right <=0  and start_movement:
@@ -62,7 +61,14 @@ while running:
         score1 += 1
         start_movement  = False
         reset_ball_position()
-    paddle2.y += 1 * paddle2_direction
+        
+    if ball.colliderect(paddle1) or ball.colliderect(paddle2):
+        ball_dx *= -1
+        ball_speed += 1
+    if start_movement:
+        ball.x += ball_speed * ball_dx
+        ball.y += ball_speed * ball_dy
+    paddle2.y += 3 * paddle2_direction
     score1_text = font.render(f"score: {score1}", True, (255,0,0))
     score2_text = font.render(f"score: {score2}", True, (0,255,0))
     screen.fill((0,0,0))
