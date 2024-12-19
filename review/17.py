@@ -26,10 +26,6 @@ class Student(Person):
 s1 = Student("sn", "sf",12,12345 , "A")
 s1.talk()
 s1.take_exam() 
-
-  
-  
-  
 class Teacher(Person):
     def __init__(self, n, f, exp):
         super().__init__(n, f)
