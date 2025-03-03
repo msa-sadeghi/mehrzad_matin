@@ -1,0 +1,22 @@
+nav{
+    background-color: grey;
+    height: 80px;
+    text-align: center;
+}
+
+div.section1{
+    background-color: red;
+    height: 200px;
+    width: 80%;
+}
+main{
+    background-color: chocolate;
+    display: flex;
+    flex-direction: row;
+}
+
+aside{
+    text-align: center;
+    border: 2px solid darkblue;
+    width: 20%;
+}
