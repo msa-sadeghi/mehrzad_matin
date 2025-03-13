@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        dialog{
+            border: 0;
+            background-color: aquamarine;
+        }
+       
+    </style>
+</head>
+<body>
+    <h2>This is H2</h2>
+    <div >
+        <dialog>
+            <p>This is a test</p>
+            <button id="hide" onclick="func1()" >close the text</button>
+        </dialog>
+        <button onclick="func2()" id="show"> open the text</button>
+    </div>
+    <script>
+        let myDialog = document.getElementsByTagName('dialog')[0]
+        function func1(){
+            myDialog.close()
+        }
+        function func2(){
+            myDialog.show()
+        }
+    </script>
+</body>
+</html>
