@@ -18,16 +18,24 @@
         <dialog>
             <p>This is a test</p>
             <button id="hide" onclick="func1()" >close the text</button>
+            <button onclick="func3()">show another dialog</button>
+        </dialog>
+        <dialog>
+            <p>another dialog</p>
         </dialog>
         <button onclick="func2()" id="show"> open the text</button>
     </div>
     <script>
         let myDialog = document.getElementsByTagName('dialog')[0]
+        let myDialog1 = document.getElementsByTagName('dialog')[1]
         function func1(){
             myDialog.close()
         }
         function func2(){
             myDialog.show()
+        }
+        function func3(){
+            myDialog1.show()
         }
     </script>
 </body>
