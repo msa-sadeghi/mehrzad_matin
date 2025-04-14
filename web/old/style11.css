@@ -1,0 +1,27 @@
+/* @import url('s.css');
+@font-face {
+    font-family: 'MyFont';
+    src: url(./Vazirmatn-Bold.woff2);
+}
+body{
+    background-color: aqua;
+}
+
+*{
+    font-family:  sans-serif;
+}
+
+.mySpan{
+    font-family: MyFont;
+} */
+
+
+.red{
+    color: red;
+}
+#r{
+    color: blue;
+}
+#s{
+    color: green;
+}
