@@ -17,3 +17,37 @@
     margin: 0 auto;
     height: 500px;
 }
+
+.footer_section h4{
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.footer_section h4::after{
+    content: "";
+    display: block;
+    height: 2px;
+    width: 50px;
+    background: #be2020;
+    margin-top: 20px;
+}
+
+.footer_section ul{
+    list-style: none;
+}
+
+.footer_section ul li a{
+    color: #fff;
+    font-size: 15px;
+    text-transform: capitalize;
+    line-height: 36px;
+    transition: all 1s ease-in;
+}
+.footer_section ul li a:hover{
+    color: #be2020;
+    text-decoration: none;
+}
