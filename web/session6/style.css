@@ -1,0 +1,35 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: MyFont;
+}
+
+@font-face {
+    font-family: 'MyFont';
+    src: url(../Vazirmatn-Bold.woff2);
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: gray;
+    text-align: center;
+    border-radius: 0 0 20px 20px;
+}
+
+.container img{
+    width: 300px;
+    height: auto;
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.main div{
+    margin-top: 20px;
+    background-color: gray;
+}
