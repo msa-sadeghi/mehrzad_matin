@@ -1,0 +1,29 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.container-fluid{
+    width: 100%;
+}
+
+.container{
+    max-width: 1200px;
+}
+.orange{
+    background-color: orange;
+}
+.height-100{
+    height: 100px;
+}
+.container .left{
+    background-color: #5f5fb7;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
