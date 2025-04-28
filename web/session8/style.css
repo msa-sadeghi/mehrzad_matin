@@ -1,0 +1,65 @@
+/* body{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #111111;
+}
+
+p{
+    border: 3px solid #111111;
+    width: 200px;
+    box-shadow: -8px -1px 12px 4px red;
+}
+
+p.one{
+    border-color: #0088dd;
+    text-align: center;
+    margin: 20px auto;
+    text-shadow: -8px 2px 6px green;
+}
+p.two{
+    border-color: #bbbbaa;
+    border-radius: 30px;
+    padding: 20px 0 10px 40px;
+    background-color: gray;
+}
+p.three{
+    border-image: url(./images/dots.gif) 11  11  stretch;
+}
+ul.list li:nth-child(even){
+    list-style: none;
+}
+ul.list li:nth-child(odd){
+    list-style: lower-latin;
+}
+ul.list  li:first-child{
+    list-style: square;
+    color: red;
+}
+ul.list li:last-child{
+    list-style: circle;
+    color: blue;
+}
+
+img{
+    filter: blur(5px);
+    filter: grayscale(100%);
+    filter: brightness(50%);
+    filter: contrast(200%);
+    filter: drop-shadow(5px 5px 5px #901515);
+} */
+
+ul.main{
+    text-align: center;
+}
+
+ul.main li{
+    display: inline;
+    list-style: none;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+ul.main li:hover{
+    background-color: yellow;
+    border-bottom: 2px solid red;
+}
