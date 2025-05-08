@@ -1,0 +1,26 @@
+p{
+    min-height: 80px;
+    max-height: 100px;
+    width: 300px;
+    background-color: gray;
+    overflow: hidden;
+    padding: 30px;
+    text-align: center;
+}
+ul{
+    text-align: center;
+}
+li{
+    display: inline;
+    padding: 20px;
+    cursor: pointer;
+}
+li:hover{
+    background-color: yellow;
+    border-bottom: 2px  solid red;
+}
+
+li.hidden{
+    /* display: none; */
+    visibility: hidden;
+}
