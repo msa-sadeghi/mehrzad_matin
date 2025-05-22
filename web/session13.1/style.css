@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+div.parent{
+    background-color: gray;
+    width: 300px;
+    height: 300px;  
+    position: relative;
+}
+div.child{
+    background-color: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;  
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+div.another-parent{
+    margin-top: 10px;
+    background-color: gray;
+    width: 300px;
+    height: 300px; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    
+}
+div.another-child{
+    background-color: red; 
+    width: 30px;
+    height: 30px;  
+}

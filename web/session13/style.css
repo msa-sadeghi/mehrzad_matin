@@ -1,0 +1,36 @@
+body{
+    width: 960px;
+    margin: 0 auto;
+    font-weight: bold;
+    text-align: center;
+}
+
+#content{
+    height: 100%; 
+    overflow: auto; 
+}
+
+#feature, #footer, #nav{
+    background-color: #efefef;
+    padding: 10px;
+    margin: 10px;
+}
+
+li{
+    display: inline;
+    padding: 5px;
+}
+.column1, .column2,  .column3{
+    background-color: #efefef;
+    width: 300px;
+    float: left;
+    margin: 10px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color: rgb(33, 173, 216);
+}
