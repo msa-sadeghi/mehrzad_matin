@@ -1,0 +1,23 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container-fluid{
+    width: 100%;
+}
+
+.container{
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 40px;
+}
+
+.hero-header{
+    
+    display: flex;
+}
+.light-gray{
+    background-color: lightgray;
+}

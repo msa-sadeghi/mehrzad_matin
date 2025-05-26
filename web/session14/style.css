@@ -1,0 +1,29 @@
+.circles{
+    /* display: flex; */
+    /* overflow: hidden; */
+}
+.circles::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+.circles div{
+    width: 10px;
+    height: 10px;
+    
+    border-radius: 50%;
+    float: left;
+    margin: 5px;
+}
+
+.circles .circle1{
+    background-color: red;
+}
+
+.circles .circle2{
+    background-color: rgb(255, 140, 0);
+}
+
+.circles .circle3{
+    background-color: rgb(11, 110, 2);
+}
