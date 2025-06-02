@@ -27,3 +27,73 @@
 .circles .circle3{
     background-color: rgb(11, 110, 2);
 }
+.buttons{
+    margin-top: 10px;
+}
+.buttons :first-child{
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s ease-in;
+}
+.buttons :nth-child(2){
+    background-color: rgb(255, 255, 255);
+    color: black;
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .5s ease-in;
+}
+.buttons input:hover{
+    opacity: 50%;
+}
+.left p{
+    margin: 10px;
+}
+
+nav.container{
+    background-color: #efefef;
+}
+nav.container ul{
+    display: flex;
+    justify-content: space-evenly;
+}
+nav.container li{
+    list-style: none;
+    
+}
+
+.hero-header .right img{
+    width: 100%;
+}
+
+@media screen and (max-width:600px){
+    .hero-header{
+    
+        display: block;
+        position: relative;
+        height: 200px;
+    }
+    .hero-header .left, .hero-header .right{
+        position: absolute;
+        
+    }
+
+    .hero-header .left{
+        z-index: 1;
+    }
+
+    .hero-header .left p{
+        font-weight: bolder;
+    }
+
+    .hero-header .right img{
+        filter: blur(10px);
+        width: 100%;
+        
+    }
+}
