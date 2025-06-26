@@ -31,3 +31,24 @@ nav ul{
     border-radius: 8px;
     margin-top: 1.5em;
 }
+
+.features{
+    padding: 2em 1em;
+    background-color: white;
+    text-align: center;
+}
+
+.feature-boxes{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px, 1fr)); 
+    gap: 1em;
+    margin-top: 1.5em;
+}
+
+.feature{
+    border: 1px solid brown;
+    border-radius: 12px;
+}
+.image-responsive{
+    width: 100%;
+}
