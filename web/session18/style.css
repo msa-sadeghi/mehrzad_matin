@@ -1,0 +1,78 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: #f4f6f8;
+    width: 100%;
+}
+.dashboard{
+    display: flex;
+    width: 100%;
+}
+aside{
+    background-color: #0072ff;
+    color: white;
+    width: 220px;
+    min-height: 100vh;
+    padding: 1em;
+    
+}
+aside ul{
+    list-style: none;
+}
+aside ul li{
+    margin-bottom: 1em;
+    font-size: 1em;
+    cursor: pointer;
+}
+aside .logo{
+    font-size: 1.5em;
+    margin-bottom: 2em;
+}
+
+main{
+    padding: 2em;
+    width: 100%;
+}
+
+header{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.products{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap :1em;
+    margin-top: 2em;
+}
+
+.card{
+    background-color: white;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+}
+
+.image-responsive{
+    width: 100%;
+}
+header button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+header button:hover{
+    border:2px solid blue
+}
+
+.dark{
+    background-color: #1e1e2f;
+    color: #eee;
+}
