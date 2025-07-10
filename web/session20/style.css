@@ -1,0 +1,35 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header{
+    width: 100%;
+    position: fixed;
+    left: 0;
+    background-color: #efefef;
+    line-height: 50px;
+    display: flex;
+    justify-content: center;
+}
+input{
+    display: none;
+    position: absolute;
+}
+label{
+    position: absolute;
+    z-index: 1;
+    font-size: 34px;
+    color: brown;
+    padding: 10px;
+}
+
+nav{
+    background-color: black;
+    color: white;
+    position: fixed;
+    height: 100%;
+    width: 300px;
+    overflow-y: scroll;
+}
