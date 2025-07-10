@@ -23,6 +23,7 @@ label{
     font-size: 34px;
     color: brown;
     padding: 10px;
+    left: 30%;
 }
 
 nav{
@@ -30,6 +31,6 @@ nav{
     color: white;
     position: fixed;
     height: 100%;
-    width: 300px;
+    width: 30%;
     overflow-y: scroll;
 }
