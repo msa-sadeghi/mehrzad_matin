@@ -9,6 +9,7 @@ ul li{
 .container{
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -54,4 +55,22 @@ button span i{
     }
 }
 
+ul{
+    background-color: rgb(227, 170, 170);
+    border-radius: 12px;
+    margin-top: 12px;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+ul a{
+    width: 100%;
+    display: inline-block;
+    text-decoration:none;
+    color: black;
+    padding: 10px 85px;
+    border-bottom: 1px solid white;
+}
 
+button:active ~ ul, button:focus ~ ul{
+    opacity: 1;
+}
