@@ -4,7 +4,7 @@
     background:linear-gradient(135deg, rgb(127, 201, 127), rgb(227, 199, 146));
 }
 
-@media screen  and (max-width:600px){
+@media screen  and (max-width:800px){
     #sidebar{
         position: fixed;
         left:-250px;
