@@ -1,54 +1,29 @@
-// let person = {
-//     name : "reza",
-//     age : 30
-// }
+function convertTemperature(){
+    let tempInput = document.getElementById("tempInput").value
+    let tempFrom = document.getElementById("tempFrom").value
+    let tempTo = document.getElementById("tempTo").value
+    let tempResult = document.getElementById("tempResult")
+    if(tempInput === ""){
+        tempResult.textContent = "لطفا دما را وارد نمائید"
+        tempResult.style.display = "block"
+        tempResult.style.backgroundColor = "red"
+        return
+    }
+    let temp = Number(tempInput)
+    let result
+    if(tempFrom === tempTo){
+        result = temp
+    }else if(tempFrom === "celsius"){
+        if(tempTo === "fahrenheit"){
+            result = temp * 2
+        }else if(tempTo === "kelvin"){
+            result = temp * 3
+        }
 
-// console.log(person.name)
-// console.log(person.age)
-// console.log(person["name"])
-// console.log(person["age"])
-
-// let colors = ["red", "green", "blue"]
-// console.log(colors[0])
-// console.log(colors[1])
-// console.log(colors[2])
-
-// let num = 123
-// let num2 = String(num)
-// let num2 = num.toString()
-// let  num3 = num + ""
-
-// let x  = "12"
-// let x1 = Number(x)
-// let x4 = parseInt("123")
-// let x42 = parseFloat("123.4")
-
-// console.log(Boolean(1))
-// console.log(Boolean(0))
-// console.log(Boolean(-1))
-
-// console.log("5" + 3)
-// console.log("5" - 3)
-// console.log("5" / 3)
-// console.log("5" % 3)
+    }
 
 
+    tempResult.textContent = `نتیجه ${result}`
+    tempResult.style.display = "block"
 
-
-// numbers = -1
-// if(Boolean(numbers)){
-//     console.log("not empty")
-// }else{
-//     console.log("empty")
-// }
-
-let x = "12"
-let y = 12
-
-if(x === y){
-    console.log("equal")
 }
-console.log(Number.isInteger(y))
-
-let c = [1,2,3]
-console.log(Array.isArray(c))
