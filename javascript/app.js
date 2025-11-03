@@ -21,8 +21,6 @@ function convertTemperature(){
         }
 
     }
-
-
     tempResult.textContent = `نتیجه ${result}`
     tempResult.style.display = "block"
 
