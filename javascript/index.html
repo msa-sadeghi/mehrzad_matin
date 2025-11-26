@@ -7,69 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>🌤️ برنامه وضعیت آب و هوا</h1>
-        
-        <div class="input-section">
-            <div class="input-group">
-                <label for="temperature">🌡️ دمای هوا (سلسیوس):</label>
-                <input type="number" id="temperature" placeholder="مثال: 25">
-            </div>
-            
-            <div class="input-group">
-                <label for="humidity">💧 رطوبت (درصد):</label>
-                <input type="number" id="humidity" min="0" max="100" placeholder="مثال: 60">
-            </div>
-            
-            <div class="input-group">
-                <label for="windSpeed">🌬️ سرعت باد (کیلومتر بر ساعت):</label>
-                <input type="number" id="windSpeed" min="0" placeholder="مثال: 15">
-            </div>
-            
-            <div class="input-group">
-                <label for="condition">☁️ وضعیت آسمان:</label>
-                <select id="condition">
-                    <option value="clear">آفتابی</option>
-                    <option value="cloudy">ابری</option>
-                    <option value="rainy">بارانی</option>
-                    <option value="snowy">برفی</option>
-                    <option value="stormy">طوفانی</option>
-                </select>
-            </div>
-            
-            <button onclick="analyzeWeather()">🔍 تحلیل آب و هوا</button>
-        </div>
-        
-        <div id="resultSection" class="result-section">
-            <div id="weatherIcon" class="weather-icon"></div>
-            <div id="temperatureDisplay" class="temperature"></div>
-            <div id="descriptionDisplay" class="description"></div>
-            
-            <div class="details">
-                <div class="detail-item">
-                    <span class="detail-label">وضعیت دما:</span>
-                    <span id="tempStatus" class="detail-value"></span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">وضعیت رطوبت:</span>
-                    <span id="humidityStatus" class="detail-value"></span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">وضعیت باد:</span>
-                    <span id="windStatus" class="detail-value"></span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">شاخص راحتی:</span>
-                    <span id="comfortIndex" class="detail-value"></span>
-                </div>
-            </div>
-            
-            <div class="advice">
-                <div class="advice-title">💡 توصیه:</div>
-                <div id="adviceText" class="advice-text"></div>
-            </div>
-        </div>
-    </div>
+    
     <script src="app2.js"></script>
 </body>
 </html>

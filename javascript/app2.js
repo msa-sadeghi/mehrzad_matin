@@ -1,81 +1,80 @@
-let x1 = 5
-// let y1 = ++x1
-// console.log(x1)
-// console.log(y1)
-// console.log("\n")
-// let x2 = 5
-// let y2 = x2++
-// console.log(x2)
-// console.log(y2)
+// let colors = ["red", "blue",  "purple", "yellow"]
+// let new_colors = colors.map(function(c){
+//     return c.toUpperCase()
+// })
+// console.log(new_colors)
+// let filtered_colors = colors.filter(function(c){
+//     return c[0] == "r"
+// })
+// console.log(filtered_colors)
+// users = [
+//     {
+//         id:1,
+//         name:"sara",
+//         age : 32
+//     },
+//     {
+//         id:2,
+//         name:"reza",
+//         age : 22
+//     },
+//     {
+//         id:1,
+//         name:"artin",
+//         age : 35
+//     },
+// ]
+// let filtered_users = users.filter(function(u){
+//     return u.age > 30
+// })
+// console.log(filtered_users)
 
-// y2 += 1
-// console.log(y2)
-
-// y2 = y2 + 1
-// console.log(y2)
-// console.log("\n")
-
-// let score = 0
-// --score
-// console.log(score)
 
 
-// console.log(5 == 5)
-// console.log(5 === "5")
 
-// let age = 18
 
-// if(age >= 18 && age <= 25){
-//     console.log("adult")
-// }else if(age >= 13 && age <=17){
-//     console.log("teenager")
+
+
+
+// // for(let i = 0; i < colors.length; i+=3){
+// //     console.log(colors[i])
+// // }
+// // let my = function(c, index){
+// //     if(index % 3 == 0)
+// //     console.log(c, index)
+// // }
+// // colors.forEach(my)
+
+// // for(let c in colors){
+// //     console.log(colors[c])
+// // }
+// // for(let c of colors){
+// //     console.log(c)
+// // }
+
+
+// const my = (name, age) => {
+//     let message = `hello ${name}, you are ${age}`
+//     return message
 // }
 
-// // || &&
-
-// // not   !
-
-// let isLoggedIn = false
-// if(!isLoggedIn){
-//     console.log("not valid")
-// }
-
-// let  age2 = 12
-
-// let status = age2 <= 17 ? "not valid user" : "valid user"
-// console.log(status)
-
-// let score = 85
-// let grade = score >= 90 ? 
-// "great" : score >= 75 ? "good" : 
-// score >= 50 ? "not good" :  "blalal"
+// console.log(my("sara", 30))
 
 
-// console.log(grade)
+// const add = (a,b) => a + b
+// console.log(add(7, 8))
 
-let temp = 35
-if(temp > 30){
-    console.log("1")
-}else if(temp == 17){
-    console.log("2")
-}else{
-    console.log("5")
-}
+let numbers = [1,2,3,4,5,6]
+let doubled = numbers.map((n) => n * 2)
+console.log(doubled)
 
-let month = "jan"
-let season
-
-switch(month){
-    case "jan":
-    case "feb":
-        season = "1"
-        break
-    case "apr":
-    case "j":
-        season = "2"
-        break
-
-    default:
-        month = "invalid"
-}
-console.log(dayname)
+let evenNumbers = numbers.filter(x => x % 2 == 0)
+console.log(evenNumbers)
+console.log(doubled)
+let new_odd = numbers.map(n => {
+    if(n % 2 == 0){
+        return n + 1
+    }
+    return n
+})
+console.log(new_odd)
