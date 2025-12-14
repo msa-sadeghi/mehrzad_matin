@@ -1,18 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>لیست دینامیک</title>
+    <style>
+        body { font-family: Tahoma; padding: 20px; }
+        #todoList {
+            list-style: none;
+            padding: 0;
+        }
+        .todo-item {
+            padding: 10px;
+            margin: 5px 0;
+            background: #f0f0f0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        button {
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+    </style>
 </head>
-<body class="light">
-    <button>Toggle Theme</button>
-    <div class="card">
-        <h2>sample card</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere eius veritatis dicta at necessitatibus omnis voluptas sint. Molestias ad magni architecto. Nihil nisi rem ad dolorum eveniet saepe vero aut?</p>
-    </div>
+<body>
+    <h1>لیست کارها</h1>
+    <input type="text" id="todoInput" placeholder="کار جدید...">
+    <button onclick="addTodo()">➕ افزودن</button>
     
-    <script src="app.js"></script>
+    <ul id="todoList"></ul>
+    
+    
 </body>
 </html>
