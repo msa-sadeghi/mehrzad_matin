@@ -1,22 +1,37 @@
 const todoInput = document.getElementById("todoInput")
 const todoList = document.getElementById("todoList")
 
+let allTodoItems = []
+let idG
+window.onload = ()=>{
+    allTodoItems = localStorage.getItem('todos')
+    if(allTodoItems === null){
+        allTodoItems = []
+    }
+    else{
+        allTodoItems = JSON.parse(allTodoItems)
+        
+    }
+   idG  = IDGenerator()
+   renderList()
+}
+
+
 function IDGenerator(){
-    let id = 0
+    let id = allTodoItems.length
     return function(){
         id++
         return id
     }
 }
 
-let idG = IDGenerator()
+
 
 function Item(name){
     this.name = name
     this.id = idG()
 }
 
-let  allTodoItems = []
 
 function addTodo(){
     let inputValue = todoInput.value.trim()
@@ -38,8 +53,6 @@ function renderList(){
     i.setAttribute("id", item.id)
     i.addEventListener('click', (e)=>{
         allTodoItems = allTodoItems.filter((i) => i.id !== item.id)
-        console.log(item.id)
-        console.log(allTodoItems)
         renderList()
     })
     newDiv.append(span, i)
@@ -48,4 +61,6 @@ function renderList(){
 
     })
 }
+
+
 
