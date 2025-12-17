@@ -37,10 +37,15 @@ function renderList(){
     i.className = "fa-solid fa-trash-can"
     i.setAttribute("id", item.id)
     i.addEventListener('click', (e)=>{
-       
+        allTodoItems = allTodoItems.filter((i) => i.id !== item.id)
+        console.log(item.id)
+        console.log(allTodoItems)
+        renderList()
     })
     newDiv.append(span, i)
     todoList.append(newDiv)
+    todoInput.value = ''
+
     })
 }
 
