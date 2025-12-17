@@ -12,30 +12,24 @@ window.onload = ()=>{
         allTodoItems = JSON.parse(allTodoItems)
         
     }
-   idG  = IDGenerator()
+   
    renderList()
 }
 
 
-function IDGenerator(){
-    let id = allTodoItems.length
-    return function(){
-        id++
-        return id
-    }
-}
 
 
 
 function Item(name){
     this.name = name
-    this.id = idG()
+    this.id = crypto.randomUUID()
 }
 
 
 function addTodo(){
     let inputValue = todoInput.value.trim()
     let newItem =new Item(inputValue)
+    todoInput.value = ''
     allTodoItems.push(newItem)
     localStorage.setItem('todos', JSON.stringify(allTodoItems))  
     renderList()
@@ -53,11 +47,12 @@ function renderList(){
     i.setAttribute("id", item.id)
     i.addEventListener('click', (e)=>{
         allTodoItems = allTodoItems.filter((i) => i.id !== item.id)
+        localStorage.setItem('todos', JSON.stringify(allTodoItems)) 
         renderList()
     })
     newDiv.append(span, i)
     todoList.append(newDiv)
-    todoInput.value = ''
+    
 
     })
 }
