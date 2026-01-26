@@ -2,46 +2,50 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>رویدادهای فرم</title>
-    <link rel="stylesheet" href="style.css">
+    <title>preventDefault</title>
+    <style>
+        body { font-family: Tahoma; padding: 20px; }
+        a { color: #667eea; font-size: 20px; }
+        form { margin: 20px 0; }
+        input { padding: 10px; margin: 5px; }
+        button { padding: 10px 20px; }
+    </style>
 </head>
 <body>
-    <h1>فرم تعاملی</h1>
+    <h1>preventDefault</h1>
     
+    <h3>1. لینک:</h3>W
+    <a href="https://google.com" id="myLink">کلیک کنید (باز نمی‌شود)</a>
+    
+    <h3>2. فرم:</h3>
     <form id="myForm">
-        <div class="form-group">
-            <label>نام:</label>
-            <input type="text" id="name" required>
-            <div class="error-message" id="nameError">نام باید حداقل 3 حرف باشد</div>
-        </div>
-        
-        <div class="form-group">
-            <label>ایمیل:</label>
-            <input type="email" id="email" required>
-            <div class="error-message" id="emailError">ایمیل نامعتبر است</div>
-        </div>
-        
-        <div class="form-group">
-            <label>سن:</label>
-            <input type="number" id="age" min="18" max="100">
-            <div class="error-message" id="ageError">سن باید بین 18 تا 100 باشد</div>
-        </div>
-        
-        <div class="form-group">
-            <label>کشور:</label>
-            <select id="country">
-                <option value="">انتخاب کنید</option>
-                <option value="iran">ایران</option>
-                <option value="usa">آمریکا</option>
-                <option value="uk">انگلیس</option>
-            </select>
-        </div>
-        
-        <button type="submit">ارسال</button>
+        <input type="text" placeholder="نام" required>
+        <button type="submit">ارسال (ارسال نمی‌شود)</button>
     </form>
     
-    <div class="info" id="info"></div>
+    <h3>3. منوی راست‌کلیک:</h3>
+    <div style="padding: 20px; background: #f0f0f0;">
+        راست‌کلیک کنید (منو باز نمی‌شود)
+    </div>
     
-   
+    <div id="log" style="margin-top: 20px; padding: 15px; background: #e8f5e9;"></div>
+    
+    <script>
+        let log = document.getElementById('log');        
+        // لینک
+        document.getElementById('myLink').addEventListener('click',function(e) {
+           e.preventDefault();
+            log.innerHTML += '<div>🔗 لینک کلیک شد اما باز نشد</div>';
+        });
+        document.getElementById('myForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            log.innerHTML += '<div>📝 فرم submit شد اما ارسال نشد</div>';
+        });
+        document.body.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+
+            log.innerHTML += '<div>🖱️ راست‌کلیک شد اما منو باز نشد</div>';
+        });
+    </script>
 </body>
 </html>
