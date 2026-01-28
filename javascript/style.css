@@ -1,22 +1,16 @@
- body { font-family: Tahoma; padding: 20px; }
-        .outer {
-            padding: 40px;
-            background: #e3f2fd;
-            border: 2px solid #2196f3;
+
+
+        .loading{
+            border:10px solid red;
+        width:80px; height:80px; border-radius:50%;
+        border-left:10px solid black; animation:loading 2s infinite
         }
-        .middle {
-            padding: 40px;
-            background: #f3e5f5;
-            border: 2px solid #9c27b0;
-        }
-        .inner {
-            padding: 40px;
-            background: #e8f5e9;
-            border: 2px solid #4caf50;
-        }
-        #log {
-            margin-top: 20px;
-            padding: 15px;
-            background: #f0f0f0;
-            border-radius: 5px;
-        }
+
+@keyframes loading {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}

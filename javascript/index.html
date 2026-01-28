@@ -1,51 +1,12 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>preventDefault</title>
-    <style>
-        body { font-family: Tahoma; padding: 20px; }
-        a { color: #667eea; font-size: 20px; }
-        form { margin: 20px 0; }
-        input { padding: 10px; margin: 5px; }
-        button { padding: 10px 20px; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>preventDefault</h1>
-    
-    <h3>1. لینک:</h3>W
-    <a href="https://google.com" id="myLink">کلیک کنید (باز نمی‌شود)</a>
-    
-    <h3>2. فرم:</h3>
-    <form id="myForm">
-        <input type="text" placeholder="نام" required>
-        <button type="submit">ارسال (ارسال نمی‌شود)</button>
-    </form>
-    
-    <h3>3. منوی راست‌کلیک:</h3>
-    <div style="padding: 20px; background: #f0f0f0;">
-        راست‌کلیک کنید (منو باز نمی‌شود)
-    </div>
-    
-    <div id="log" style="margin-top: 20px; padding: 15px; background: #e8f5e9;"></div>
-    
-    <script>
-        let log = document.getElementById('log');        
-        // لینک
-        document.getElementById('myLink').addEventListener('click',function(e) {
-           e.preventDefault();
-            log.innerHTML += '<div>🔗 لینک کلیک شد اما باز نشد</div>';
-        });
-        document.getElementById('myForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            log.innerHTML += '<div>📝 فرم submit شد اما ارسال نشد</div>';
-        });
-        document.body.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-
-            log.innerHTML += '<div>🖱️ راست‌کلیک شد اما منو باز نشد</div>';
-        });
-    </script>
+    <div id="loading" class="loading"></div>
+    <div id="container"></div>
+    <script src="app.js"></script>
 </body>
 </html>
