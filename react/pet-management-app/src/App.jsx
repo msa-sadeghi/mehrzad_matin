@@ -1,22 +1,38 @@
-import Card from "./components/Card"
-import "./assets/css/Card.css"
 import { useState } from "react"
-import Form from "./components/Form"
+import TodoList from "./components/TodoList"
+import TodoForm from "./components/TodoForm"
+
 function App(){
-    const [items, setItems] = useState([
-        {id : 1, name: "laptop asus", price:"1000" , details:"asus pro", category:"electronic" },
-        {id : 2, name: "IPHone 17", price:"2000" , details:"Iphone pro", category:"electronic" },
-        {id : 3, name: "IPHone 16", price:"1000" , details:"Iphone pro", category:"electronic" },
-    ])
-    const addItem = (product)=>{
-        setItems(prev => [...prev, product])
+    const [todos, setTodos] = useState([
+        {
+        id:1,
+        text:'todo #1'
+            },
+        {
+        id:2,
+        text:'todo #2'
+            },
+])
+    const deleteTodo = (id)=>{
+
+    }
+    const toggleTodo = (id)=>{
+
+    }
+    const addTodo = (text)=>{
+
     }
     return(
-        <div>
-            <Form addItem={addItem}/>
-            {items.map(pr => (
-                <Card name={pr.name} price ={pr.price} details={pr.details} category={pr.category}/>
-            ))}
+        <div style={{ width:"400px", margin:"50px auto"}}>
+            <h1>Todo App</h1>
+            <TodoForm 
+            addTodo={addTodo}
+            />
+            <TodoList
+            todos={todos}
+            toggleTodo={toggleTodo}
+            deleteTodo={deleteTodo}
+            />
         </div>
     )
 }
