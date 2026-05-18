@@ -6,6 +6,8 @@ function TodoForm({addTodo}){
         setText(e.target.value)
     }
     const handleSubmit=(e)=>{
+        e.preventDefault()
+        addTodo(text)
     }
     return(
         <form onSubmit={handleSubmit}>

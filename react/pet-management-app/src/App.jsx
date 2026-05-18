@@ -14,13 +14,17 @@ function App(){
             },
 ])
     const deleteTodo = (id)=>{
-
+        setTodos(todos.filter(t=>t.id !== id))
     }
     const toggleTodo = (id)=>{
 
     }
     const addTodo = (text)=>{
-
+        const  newTodo = {
+            id:Date.now(),
+            text:text
+        }
+        setTodos(prev => ([...prev, newTodo]))
     }
     return(
         <div style={{ width:"400px", margin:"50px auto"}}>

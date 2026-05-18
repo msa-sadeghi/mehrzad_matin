@@ -14,7 +14,7 @@ function TodoItem({ todo, deleteTodo, toggleTodo}){
             >
                 {todo.text}
             </span>
-            <button>Delete</button>
+            <button onClick={()=>deleteTodo(todo.id)}>Delete</button>
         </div>
     )
 }
