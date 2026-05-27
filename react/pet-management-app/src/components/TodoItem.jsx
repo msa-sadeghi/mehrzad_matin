@@ -1,4 +1,5 @@
 function TodoItem({ todo, deleteTodo, toggleTodo}){
+    
     return(
         <div style={{
             display:'flex',
@@ -7,9 +8,13 @@ function TodoItem({ todo, deleteTodo, toggleTodo}){
         }}>
             <input 
             
-            type="checkbox" name="" id="" />
+            type="checkbox" name="" id="" checked={todo.completed}
+            onChange={()=>toggleTodo(todo.id)}
+            />
             
-            <span
+            <span style={{
+               color: todo.completed ? 'blue' : 'black'
+            }}
                 
             >
                 {todo.text}

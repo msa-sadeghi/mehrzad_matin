@@ -16,7 +16,7 @@ function TodoForm({addTodo}){
             value={text}
             onChange={handleChange}
             type="text" />
-            <button type="submit">Add</button>
+            <button type="submit" className="test">Add</button>
         </form>
     )
 }
