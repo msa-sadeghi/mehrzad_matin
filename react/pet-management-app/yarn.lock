@@ -873,6 +873,11 @@ node-releases@^2.0.27:
   resolved "https://registry.npmjs.org/node-releases/-/node-releases-2.0.27.tgz"
   integrity sha512-nmh3lCkYZ3grZvqcCH+fjmQ7X+H0OeZgP40OierEaAptX4XofMh5kwNbWh7lBduUzCcV/8kZ+NDLCwm2iorIlA==
 
+nvm@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.npmjs.org/nvm/-/nvm-0.0.4.tgz"
+  integrity sha512-jvmyELykYcdyd0VCGY0E8Aqe5MngEasVvlPvrcJHbwBMUbVqa72mPdQuPzyTcykEtEx7jDrMY0QA5MoV+8EhgA==
+
 optionator@^0.9.3:
   version "0.9.4"
   resolved "https://registry.npmjs.org/optionator/-/optionator-0.9.4.tgz"
