@@ -1,10 +1,6 @@
-import UserForm from "./features/products/components/UserForm";
+import getData from "./features/products/components/Data";
 function App() {
-  return (
-    <>
-      <UserForm />
-    </>
-  );
+  return <></>;
 }
 
 export default App;
