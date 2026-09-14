@@ -1,6 +1,11 @@
-import getData from "./features/products/components/Data";
+import Products from "./features/products/components/Products";
+
 function App() {
-  return <></>;
+  return (
+    <>
+      <Products />
+    </>
+  );
 }
 
 export default App;
