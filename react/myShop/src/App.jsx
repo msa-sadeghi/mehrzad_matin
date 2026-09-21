@@ -1,9 +1,17 @@
-import Products from "./features/products/components/Products";
+import { useRef } from "react";
 
 function App() {
+  const inputRef = useRef(null);
   return (
     <>
-      <Products />
+      <input ref={inputRef} type="text" name="" id="" />
+      <button
+        onClick={() => {
+          inputRef.current.focus();
+        }}
+      >
+        clickme
+      </button>
     </>
   );
 }
